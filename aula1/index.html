@@ -1,0 +1,96 @@
+
+<h1>Olá mundo</h1>
+
+<h2>Isso é uma mentira</h2>
+<p>Esse é o primeiro site do <i>Marcius</i></p>
+
+<h2>Isso é uma verdade</h2>
+<p>Essa é a 19ª vez que eu explico isso no <b>Senac</b></p>
+
+<h2>Esse é o meu parágrafo de duas linhas</h2>
+<p>
+    Essa é a primeira linha<br>
+    Essa é a segunda linha
+</p>
+
+<h2>Meu formulário</h2>
+<p>Preencha as informações abaixo</p>
+
+<form id="formRegister">
+
+    Nome:
+    <input 
+        id="iName" 
+        type="text" 
+        placeholder="Digite seu nome completo"
+    />
+
+    Email:
+    <input
+        id="iEmail" 
+        type="email"
+        placeholder="Digite o seu melhor email"
+    />
+
+    <br>
+
+    Senha:
+    <input
+        id="iPass" 
+        type="password"
+        placeholder="Letra maiúscula e números"
+    />
+
+    Data de nascimento:
+    <input
+        id="iBirth" 
+        type="date"
+    />
+
+    <br>
+
+    <button type="submit">Salvar</button>
+
+</form>
+
+<h2>Resposta</h2>
+<pre id="pResponse"></pre>
+
+<script>
+    var formR = document.getElementById("formRegister");
+    formR.addEventListener("submit", (e)=> {
+        e.preventDefault();
+
+        let name = document.getElementById("iName").value;
+        let email = document.getElementById("iEmail").value;
+        let pass = document.getElementById("iPass").value;
+        let birth = document.getElementById("iBirth").value;
+
+        const user = {//objeto anônimo, estrutura, json
+            nome: name,
+            email: email,
+            senha: pass,
+            nascimento: birth
+        }
+
+        let response = document.getElementById("pResponse")
+        response.innerHTML = JSON.stringify(user, null, 4);
+
+    })
+</script>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
