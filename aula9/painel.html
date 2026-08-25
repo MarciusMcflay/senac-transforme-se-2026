@@ -1,3 +1,5 @@
+<html>
+
 <head>
     <title>Aula 9</title>
 
@@ -8,38 +10,32 @@
     <h3 id="hello"></h3>
 
     <div class="h-full flex">
-        <div class="fixed p-5 bg-about rounded-lg shadow-md flex column">
+        <div id="modalRegister" class="fixed p-5 bg-about rounded-lg shadow-md column hidden">
             <h2>Cadastre um novo usuário</h2>
             <p>Preencha as informações abaixo</p>
 
             <form id="formRegister" class="flex column">
-
                 Nome:
                 <input id="iName" type="text" placeholder="Digite seu nome completo" />
-
                 Email:
                 <input id="iEmail" type="email" placeholder="Digite o seu melhor email" />
-
                 <br>
-
                 Senha:
                 <input id="iPass" type="password" placeholder="Letra maiúscula e números" />
-
                 Data de nascimento:
                 <input id="iBirth" type="date" />
-
                 <br>
-
                 <a class="mt-5 bg-primary text-white text-center rounded-md py-2">Salvar</a>
-
             </form>
         </div>
 
         <pre id="listUsers"></pre>
     </div>
-    
+
+    <a id="addUser" class="rounded-full bg-primary text-white px-4 py-3 fixed bottom-0 right-0"> + </a>
 
     <script src="user.js"></script>
+    <script src="painel.js"></script>
 </body>
 
 </html>
