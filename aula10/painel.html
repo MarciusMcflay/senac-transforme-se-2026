@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Aula 10 - painel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h3 id="hello"></h3>
+
+    <div 
+        id="modalRegister" 
+        class="fixed top-0 right-0 bottom-0 
+            left-0 hidden items-center justify-center bg-black-50 z-50">
+
+        <div class="relative max-w-md w-full p-5 bg-about rounded-lg 
+            shadow-md flex column">
+
+            <a id="btClose" 
+                class="bg-prices absolute top-0 right-0 px-2 
+                rounded-full cursor-pointer">
+                X
+            </a>
+            <h2>Cadastre um novo usuário</h2>
+            <p>Preencha as informações abaixo</p>
+
+            <form class="flex column">
+                Nome:
+                <input id="iName" type="text" placeholder="Digite seu nome completo" />
+                Email:
+                <input id="iEmail" type="email" placeholder="Digite o seu melhor email" />
+                <br>
+                Senha:
+                <input id="iPass" type="password" placeholder="Letra maiúscula e números" />
+                Data de nascimento:
+                <input id="iBirth" type="date" />
+                <br>
+                <a id="formRegister" class="mt-5 bg-primary text-white text-center rounded-md py-2">Salvar</a>
+            </form>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Ações</th>
+        </thead>
+        <tbody id="listUsers">
+           
+        </tbody>
+    </table>
+
+    <a id="addUser" class="rounded-full bg-primary text-white px-4 py-3 fixed bottom-0 right-0"> + </a>
+
+    <script src="user.js"></script>
+    <script src="painel.js"></script>
+</body>
+
+</html>
