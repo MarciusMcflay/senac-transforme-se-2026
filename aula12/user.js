@@ -4,6 +4,18 @@ var loggeded = JSON.parse( localStorage.getItem("loggeded") ) || {};
 var hello = document.getElementById("hello");
 if(hello && loggeded) hello.innerHTML = "Olá " + loggeded.nome
 
+/*function name(parametro1, p2){
+    return
+}*/
+function createButton(text, action, i){
+    let bt = document.createElement("a");
+    bt.innerHTML = text;
+    bt.classList.add(action);
+    bt.classList.add("cursor-pointer");
+    bt.dataset.id = i;
+    return bt;
+}
+
 var listUsers = document.getElementById("listUsers")
 if(listUsers){
     let i = 0;
@@ -15,21 +27,17 @@ if(listUsers){
         tdEmail.innerHTML = u.email;
 
         let tdAction = document.createElement("td");
-        let btV = document.createElement("a");
-        btV.innerHTML = "V";
-        btV.classList.add("show");
-        btV.id =  i;
-        tdAction.appendChild(btV);
+        tdAction.appendChild(
+            createButton("V", "show", i)
+        );
 
         let span = document.createElement("span");
         span.innerHTML = " - ";
         tdAction.appendChild(span);
 
-        let btR = document.createElement("a");
-        btR.innerHTML = "X";
-        btR.id =  i;
-        btR.classList.add("remove");
-        tdAction.appendChild(btR);
+        tdAction.appendChild(
+            createButton("X", "remove", i)
+        );
 
         let tr = document.createElement("tr");
         tr.appendChild(tdName);
@@ -46,7 +54,7 @@ if(listUsers){
 var botoesV = document.querySelectorAll(".show");
 botoesV.forEach((b) => {
     b.addEventListener("click",  ()=>{
-        const id = b.id;
+        const id = b.dataset.id;
         b.innerHTML = users[id].nascimento;
     })
 })
@@ -54,7 +62,7 @@ botoesV.forEach((b) => {
 var botoesR = document.querySelectorAll(".remove");
 botoesR.forEach((b)=>{
     b.addEventListener("click", ()=>{
-        const id = b.id;
+        const id = b.dataset.id;
         users.splice(id, 1);
         localStorage.setItem("users", JSON.stringify(users));
         window.location.href = "painel.html"
