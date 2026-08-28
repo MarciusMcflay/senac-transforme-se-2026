@@ -7,11 +7,25 @@ if(hello && loggeded) hello.innerHTML = "Olá " + loggeded.nome
 /*function name(parametro1, p2){
     return
 }*/
-function createButton(text, action, i){
+
+
+
+function createButton(text, classes, i){
     let bt = document.createElement("a");
     bt.innerHTML = text;
-    bt.classList.add(action);
+
+    classes.forEach(c => {
+        bt.classList.add(c);
+    })
+
     bt.classList.add("cursor-pointer");
+    bt.classList.add("px-3");
+    bt.classList.add("mx-4");
+    bt.classList.add("hover:shadow");
+    bt.classList.add("shadow-md");
+    bt.classList.add("text-white");
+    bt.classList.add("rounded-full");
+    // aqui vai vir todas as classes estaticas para estilizar o botão
     bt.dataset.id = i;
     return bt;
 }
@@ -27,17 +41,8 @@ if(listUsers){
         tdEmail.innerHTML = u.email;
 
         let tdAction = document.createElement("td");
-        tdAction.appendChild(
-            createButton("V", "show", i)
-        );
-
-        let span = document.createElement("span");
-        span.innerHTML = " - ";
-        tdAction.appendChild(span);
-
-        tdAction.appendChild(
-            createButton("X", "remove", i)
-        );
+        tdAction.appendChild( createButton("V", ["show","bg-primary"], i) );
+        tdAction.appendChild( createButton("X", ["remove","bg-red"], i) );
 
         let tr = document.createElement("tr");
         tr.appendChild(tdName);
